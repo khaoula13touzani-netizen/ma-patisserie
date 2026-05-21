@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produits - Ma Pâtisserie</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">🥐 Ma Pâtisserie</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="produits.html" class="active">Produits</a></li>
+                <li><a href="panier.html">Panier <span id="panier-count" class="badge">0</span></a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Filtres -->
+    <section class="filters">
+        <div class="container">
+            <h2>Notre Catalogue</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="tous">Tous</button>
+                <button class="filter-btn" data-filter="gateaux">Gâteaux</button>
+                <button class="filter-btn" data-filter="biscuits">Biscuits</button>
+                <button class="filter-btn" data-filter="croissants">Croissants</button>
+                <button class="filter-btn" data-filter="patisseries">Pâtisseries</button>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Rechercher un produit...">
+            </div>
+        </div>
+    </section>
+
+    <!-- Produits -->
+    <section class="products">
+        <div class="container">
+            <div id="products-list" class="products-grid">
+                <!-- Les produits seront chargés dynamiquement -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Ma Pâtisserie. Tous droits réservés.</p>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/produits.js"></script>
+    <script src="js/panier.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            afficherProduits(produits);
+            
+            // Filtres
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filtre = this.dataset.filter;
+                    if (filtre === 'tous') {
+                        afficherProduits(produits);
+                    } else {
+                        const filtres = produits.filter(p => p.categorie === filtre);
+                        afficherProduits(filtres);
+                    }
+                });
+            });
+            
+            // Recherche
+            document.getElementById('search-input').addEventListener('keyup', function() {
+                const terme = this.value.toLowerCase();
+                const resultats = produits.filter(p => 
+                    p.nom.toLowerCase().includes(terme) || 
+                    p.description.toLowerCase().includes(terme)
+                );
+                afficherProduits(resultats);
+            });
+        });
+    </script>
+</body>
+</html>

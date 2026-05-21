@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Pâtisserie - Les meilleures pâtisseries artisanales</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">🥐 Ma Pâtisserie</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="produits.html">Produits</a></li>
+                <li><a href="panier.html">Panier <span id="panier-count" class="badge">0</span></a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bienvenue chez Ma Pâtisserie</h1>
+            <p>Découvrez nos délicieuses créations artisanales</p>
+            <a href="produits.html" class="btn btn-primary">Voir nos produits</a>
+        </div>
+    </section>
+
+    <!-- Catégories -->
+    <section class="categories">
+        <div class="container">
+            <h2>Nos Catégories</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">🎂</div>
+                    <h3>Gâteaux</h3>
+                    <p>Gâteaux personnalisés et savoureux</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🍪</div>
+                    <h3>Biscuits</h3>
+                    <p>Biscuits croustillants et moelleux</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🥐</div>
+                    <h3>Croissants</h3>
+                    <p>Croissants feuilletés et délicieux</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🍰</div>
+                    <h3>Pâtisseries</h3>
+                    <p>Pâtisseries fines et élégantes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produits Vedettes -->
+    <section class="featured-products">
+        <div class="container">
+            <h2>Nos Produits Vedettes</h2>
+            <div id="featured-list" class="products-grid">
+                <!-- Les produits seront chargés dynamiquement -->
+            </div>
+        </div>
+    </section>
+
+    <!-- À Propos -->
+    <section class="about">
+        <div class="container">
+            <h2>À Propos de Nous</h2>
+            <p>Ma Pâtisserie est une boulangerie artisanale proposant des pâtisseries faites maison avec les meilleurs ingrédients. Depuis des années, nous ravissons les papilles de nos clients avec nos créations uniques et délicieuses.</p>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Nous Contacter</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Votre nom" required>
+                <input type="email" placeholder="Votre email" required>
+                <textarea placeholder="Votre message" rows="5" required></textarea>
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Ma Pâtisserie. Tous droits réservés.</p>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/produits.js"></script>
+    <script src="js/panier.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
